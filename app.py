@@ -29,7 +29,7 @@ from sklearn.metrics import confusion_matrix
 
 #### Q1
 
-os.chdir("C:/Users/halse/Documents/project")
+# os.chdir("C:/Users/halse/Documents/project")
 
 s = pd.read_csv("social_media_usage.csv")
 

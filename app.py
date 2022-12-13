@@ -423,39 +423,33 @@ else:
 
 st.write("Age: ", age)
 
-# ########## Example 2
-
-# num1 = st.slider(label="Enter a number", 
-#           min_value=1,
-#           max_value=9,
-#           value=7)
-
-# num2 = st.slider(label="Enter a number",
-#           min_value=1,
-#           max_value=100,
-#           value=50)
-
-# num3 = st.slider(label="Enter a number", 
-#           min_value=1,
-#           max_value=8,
-#           value=5)
-
-# st.write("Your numbers: ", num1, num2, num3)
-
-# num_sum = num1+num2+num3
-
-# st.write("Your numbers: ", num1, num2, num3, "sum to", num_sum)
 
 
+# combine to run LR
 selected_option = (income,education,parent,married,gender,age)
 
+# Run LR
 predicted_class1 = lr.predict([selected_option])
 
-predicted_class1
+#Print Classification
 
+if predicted_class1 == 1:
+    st.write(f"You are predicted to have a LinkedIn Account!")
+else:
+    st.write(f"You are predicted NOT to have a LinkedIn Account!")
+
+
+#Get Probability
 probs1 = lr.predict_proba([selected_option])
 
-probs1 = lr.predict_proba([selected_option])
 
-probs1
+#make a legiable number and round
+probs_per = np.round(probs1[:,1] * 100 ,2)  
 
+#print statement
+st.write(f"Your probablity of having a Linked in Account is {probs_per}%!")  
+
+
+
+
+    
